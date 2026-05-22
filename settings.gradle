@@ -1,0 +1,3 @@
+rootProject.name = 'hyperskill-java-portfolio'
+include 'ascii-mirror'
+include 'last-pencil'

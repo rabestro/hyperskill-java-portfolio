@@ -2,7 +2,7 @@ plugins {
     id 'groovy'
     id 'application'
     id 'jacoco'
-    id "org.sonarqube" version "3.4.0.2513"
+    id "org.sonarqube" version "5.0.0.4638"
 }
 
 group 'asciimirror'
@@ -15,12 +15,12 @@ repositories {
 
 dependencies {
     // Spock Framework
-    testImplementation platform('org.codehaus.groovy:groovy-bom:3.0.12')
-    testImplementation platform('org.spockframework:spock-bom:2.1-groovy-3.0')
+    testImplementation platform('org.apache.groovy:groovy-bom:4.0.21')
+    testImplementation platform('org.spockframework:spock-bom:2.3-groovy-4.0')
     testImplementation 'org.spockframework:spock-core'
 
     // Spock Reports
-    testRuntimeOnly 'com.athaydes:spock-reports:2.3.0-groovy-3.0'
+    testRuntimeOnly 'com.athaydes:spock-reports:2.5.1-groovy-4.0'
     testImplementation 'org.slf4j:slf4j-api:1.7.36'
     testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.36'
 }
@@ -55,7 +55,7 @@ test {
 }
 
 jacoco {
-    toolVersion = "0.8.7"
+    toolVersion = "0.8.12"
 }
 
 jacocoTestReport {
