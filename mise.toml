@@ -1,2 +1,14 @@
 [tools]
 java = "21"
+
+[tasks."run:last-pencil"]
+description = "Run the Last Pencil game"
+run = "./gradlew -q --console=plain :last-pencil:run"
+
+[tasks."run:ascii-mirror"]
+description = "Run the ASCII Mirror application"
+run = "./gradlew -q --console=plain :ascii-mirror:run"
+
+[tasks.build]
+description = "Build all projects"
+run = "./gradlew build"
