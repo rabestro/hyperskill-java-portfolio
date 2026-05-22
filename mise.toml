@@ -17,6 +17,10 @@ run = "./gradlew --quiet --console=plain :guess-the-animal:run"
 description = "Run the Recipes Spring Boot application"
 run = "./gradlew -q --console=plain :recipes:bootRun"
 
+[tasks."run:learning-progress-tracker"]
+description = "Run the Learning Progress Tracker application"
+run = "./gradlew -q --console=plain :learning-progress-tracker:run"
+
 [tasks.build]
 description = "Build all projects"
 run = "./gradlew build"
