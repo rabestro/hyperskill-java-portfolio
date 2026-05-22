@@ -1,62 +1,30 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
-    }
+plugins {
+    id 'java'
+    id 'application'
 }
 
-subprojects {
-    apply plugin: 'application'
-    apply plugin: 'java'
-    apply plugin: "kotlin"
+group = 'animals'
+version = '1.0-SNAPSHOT'
 
-    sourceCompatibility = 11
-
-    repositories {
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-    }
-
-    dependencies {
-        testCompile group: 'junit', name: 'junit', version: '4.12'
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-        implementation "org.jetbrains.kotlin:kotlin-reflect:1.3.61"
-
-        testImplementation 'com.github.hyperskill:hs-test:release-SNAPSHOT'
-
-        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
-        compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.11.2'
-        compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.11.2'
-    }
-
-    sourceSets {
-        main.java.srcDir 'src'
-        test.java.srcDir 'test'
-    }
-
-    test {
-        systemProperty "file.encoding", "utf-8"
-        outputs.upToDateWhen { false }
-        afterTest { TestDescriptor test, TestResult result ->
-            if (result.resultType == TestResult.ResultType.FAILURE) {
-                def message = result.exception?.message ?: "Wrong answer"
-                def lines = message.readLines()
-                println "#educational_plugin FAILED + " + lines[0]
-                lines[1..-1].forEach { line ->
-                    println "#educational_plugin" + line
-                }
-            }
-        }
-    }
-
-    compileJava.options.encoding = 'UTF-8'
-    tasks.withType(JavaCompile) {
-        options.encoding = 'UTF-8'
-    }
+repositories {
+    mavenCentral()
 }
 
-wrapper {
-    gradleVersion = '5.3.1'
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.16.1'
+}
+
+application {
+    mainClass = 'animals.Main'
+}
+
+run {
+    standardInput = System.in
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }

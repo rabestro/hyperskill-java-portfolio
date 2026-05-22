@@ -1,3 +1,4 @@
 rootProject.name = 'hyperskill-java-portfolio'
 include 'ascii-mirror'
 include 'last-pencil'
+include 'jetbrains-academy-guess-the-animal'
