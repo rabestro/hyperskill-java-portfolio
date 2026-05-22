@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import recipes.models.User;
 import recipes.repositories.UserRepository;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 
 import static java.lang.System.Logger.Level.INFO;
