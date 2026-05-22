@@ -1,0 +1,8 @@
+* text=auto
+
+*.java text diff=java
+*.xml text
+*.properties text
+*.md text
+*.sh text eol=lf
+*.bat text eol=crlf
