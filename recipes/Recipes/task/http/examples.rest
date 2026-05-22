@@ -1,0 +1,105 @@
+### Example 1: POST /api/recipe/new request without authentication
+
+POST {{host}}/api/recipe/new
+Content-Type: application/json
+
+{
+  "name": "Fresh Mint Tea",
+  "category": "beverage",
+  "description": "Light, aromatic and refreshing beverage, ...",
+  "ingredients": [
+    "boiled water",
+    "honey",
+    "fresh mint leaves"
+  ],
+  "directions": [
+    "Boil water",
+    "Pour boiling hot water into a mug",
+    "Add fresh mint leaves",
+    "Mix and let the mint leaves seep for 3-5 minutes",
+    "Add honey and mix again"
+  ]
+}
+
+### Example 2: POST /api/register request without authentication
+
+POST {{host}}/api/register
+Content-Type: application/json
+
+{
+  "email": "Cook_Programmer@somewhere.com",
+  "password": "RecipeInBinary"
+}
+
+### Example 3: request with basic authentication
+
+POST {{host}}/api/recipe/new
+Authorization: Basic Cook_Programmer@somewhere.com RecipeInBinary
+Content-Type: application/json
+
+{
+  "name": "Mint Tea",
+  "category": "beverage",
+  "description": "Light, aromatic and refreshing beverage, ...",
+  "ingredients": [
+    "boiled water",
+    "honey",
+    "fresh mint leaves"
+  ],
+  "directions": [
+    "Boil water",
+    "Pour boiling hot water into a mug",
+    "Add fresh mint leaves",
+    "Mix and let the mint leaves seep for 3-5 minutes",
+    "Add honey and mix again"
+  ]
+}
+
+### Example 4: request with basic authentication
+
+GET {{host}}/api/recipe/1
+Authorization: Basic Cook_Programmer@somewhere.com RecipeInBinary
+
+
+### Example 5: Add second user
+
+POST {{host}}/api/register
+Content-Type: application/json
+
+{
+   "email": "CamelCaseRecipe@somewhere.com",
+   "password": "C00k1es."
+}
+
+### Second user requests the receipe
+
+GET {{host}}/api/recipe/1
+Authorization: Basic CamelCaseRecipe@somewhere.com C00k1es.
+
+### Second user
+
+PUT {{host}}/api/recipe/1
+Authorization: Basic CamelCaseRecipe@somewhere.com C00k1es.
+Content-Type: application/json
+
+{
+  "name": "Warming Ginger Tea",
+  "category": "beverage",
+  "description": "Ginger tea is a warming drink for cool weather, ...",
+  "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
+  "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+}
+
+### First user
+
+PUT {{host}}/api/recipe/1
+Authorization: Basic Cook_Programmer@somewhere.com RecipeInBinary
+Content-Type: application/json
+
+{
+   "name": "Warming Ginger Tea",
+   "category": "beverage",
+   "description": "Ginger tea is a warming drink for cool weather, ...",
+   "ingredients": ["1 inch ginger root, minced", "1/2 lemon, juiced", "1/2 teaspoon manuka honey"],
+   "directions": ["Place all ingredients in a mug and fill with warm water (not too hot so you keep the beneficial honey compounds in tact)", "Steep for 5-10 minutes", "Drink and enjoy"]
+}
