@@ -9,9 +9,9 @@ run = "./gradlew -q --console=plain :last-pencil:run"
 description = "Run the ASCII Mirror application"
 run = "./gradlew -q --console=plain :ascii-mirror:run"
 
-[tasks."run:jetbrains-academy-guess-the-animal"]
+[tasks."run:guess-the-animal"]
 description = "Run the Guess the Animal game"
-run = "./gradlew -q --console=plain :jetbrains-academy-guess-the-animal:run"
+run = "./gradlew -q --console=plain :guess-the-animal:run"
 
 [tasks.build]
 description = "Build all projects"
