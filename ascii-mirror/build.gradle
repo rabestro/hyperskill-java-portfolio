@@ -21,8 +21,8 @@ dependencies {
 
     // Spock Reports
     testRuntimeOnly 'com.athaydes:spock-reports:2.5.1-groovy-4.0'
-    testImplementation 'org.slf4j:slf4j-api:1.7.36'
-    testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.36'
+    testImplementation 'org.slf4j:slf4j-api:2.0.18'
+    testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.18'
 }
 
 // In order to run the application type the command:
