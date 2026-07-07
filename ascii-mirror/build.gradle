@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     // Spock Framework
-    testImplementation platform('org.apache.groovy:groovy-bom:5.0.6')
+    testImplementation platform('org.apache.groovy:groovy-bom:5.0.7')
     testImplementation platform('org.spockframework:spock-bom:2.4-groovy-4.0')
     testImplementation 'org.spockframework:spock-core'
 
